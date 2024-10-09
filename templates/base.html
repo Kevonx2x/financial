@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Family Financial{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <h1>Where Families Pool Money Together to Gain Generational Wealth! </h1>
+    </header>
+
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+
+    <footer class="footer-content">
+        {% block footer %} Family Financial | 2024 {% endblock %}
+    </footer>
+    
+</body>
+</html>
