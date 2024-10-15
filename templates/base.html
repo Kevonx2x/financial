@@ -1,22 +1,29 @@
+<!-- base.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Family Financial{% endblock %}</title>
+    <title>{% block title %}Family Financial App{% endblock %}</title>
 </head>
 <body>
     <header>
-        <h1>Where Families Pool Money Together to Gain Generational Wealth! </h1>
+        <h1>Family Financial App</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'family_member_list' %}">Family Members</a></li>
+                <li><a href="{% url 'investment_list' %}">Investments</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <div class="content">
-        {% block content %}{% endblock %}
-    </div>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
 
-    <footer class="footer-content">
-        {% block footer %} Family Financial | 2024 {% endblock %}
+    <footer>
+        <p>© 2024 Family Financial App</p>
     </footer>
-    
 </body>
 </html>

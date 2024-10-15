@@ -1,4 +1,5 @@
 from django.db import models
+from family_members.models import FamilyMember
 
 # Create your models here.
 class Investment(models.Model):
