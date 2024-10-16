@@ -7,4 +7,4 @@ def investments_list(request):
 
 def investment_detail(request, id):
     investment = Investment.objects.get(id=id)
-    return render(request, 'investments/investment_detail.html', {'investment': investment})
+    return render(request, 'investments/investment_detail.html', {'investment': investment}) 

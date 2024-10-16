@@ -13,4 +13,4 @@ def family_member_detail(request, id):
     return render(request, 'family_members/family_member_detail.html', {'member': member})
 
 def home(request):
-    return render(request, 'home.html')  # This will extend base.html
+    return render(request, 'pages/home.html') 

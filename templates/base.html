@@ -1,21 +1,58 @@
-<!-- base.html -->
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Family Financial App{% endblock %}</title>
+
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" crossorigin="anonymous" rel="preconnect">
+    <link 
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital@0;1&family=Lobster+Two:ital,wght@0,700;1,400&display=swap" 
+    rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/base.css' %}"> 
+    <link rel="stylesheet" href="{% static 'css/header.css' %}"> 
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}"> 
+    <link rel="stylesheet" href="{% static 'css/section.css' %}"> 
+
 </head>
 <body>
-    <header>
-        <h1>Family Financial App</h1>
-        <nav>
-            <ul>
-                <li><a href="{% url 'family_member_list' %}">Family Members</a></li>
-                <li><a href="{% url 'investment_list' %}">Investments</a></li>
-            </ul>
+    <header class="center-row">
+
+        <!-- Left Section (Logo/Title) -->
+        <div class="logo center-row">
+            <a href="/">
+                <h2>Family Financial App</h2> <!-- You can customize this title as needed -->
+            </a>     
+        </div>
+    
+        <!-- Right Section (Navigation Menu) -->
+        <nav class="nav-menu">
+    
+            <!-- Hamburger Button for Mobile View -->
+            <input type="checkbox" id="checkBox">
+    
+            <div class="hamburger-btn">
+                <label for="checkBox">
+                    <span></span>
+                    <span></span> 
+                    <span></span>
+                </label>
+            </div>
+    
+            <!-- Menu Options (Navigation Links) -->
+            <div class="nav-options center-row">
+                <a href="{% url 'home' %}">Home</a>
+                <a href="{% url 'family_members_list' %}">Family Members</a>
+                <a href="{% url 'investment_list' %}">Investments</a>
+            </div>
+            
         </nav>
+    
     </header>
+    
 
     <main>
         {% block content %}
@@ -23,7 +60,7 @@
     </main>
 
     <footer>
-        <p>© 2024 Family Financial App</p>
+        <p>&copy; {{ current_year }} Family Financial App</p>
     </footer>
 </body>
 </html>

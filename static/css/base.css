@@ -1,0 +1,78 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fff7db; /* Light yellow background */
+    color: #5a2d1a; /* Maroon-brown text color */
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: #f7d25c; /* Yellow for the header */
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    color: #5a2d1a; /* Complementary maroon-brown */
+}
+
+.card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #5a2d1a; /* Maroon-brown background for the cards */
+    color: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 7px;
+    width: 80%;
+    margin: 20px auto;
+}
+
+.card-left {
+    flex-direction: row;
+}
+
+.card-right {
+    flex-direction: row-reverse;
+}
+
+.card-content {
+    width: 60%;
+}
+
+.card-image {
+    width: 35%;
+    background-color: #f7d25c; /* Yellow for image placeholders */
+    border-radius: 10px;
+    height: 150px; /* Placeholder size for the image */
+}
+
+.card h2 {
+    margin-top: 0;
+    font-size: 1.8em;
+}
+
+.card p {
+    font-size: 1.2em;
+}
+
+.paragraph {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.paragraph p {
+    font-size: 1.5em;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #5a2d1a; /* Maroon-brown footer */
+    color: white;
+    border-radius: 10px;
+    margin-top: 20px;
+}
