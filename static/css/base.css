@@ -1,32 +1,18 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #fff7db; /* Light yellow background */
-    color: #5a2d1a; /* Maroon-brown text color */
-}
-
-header {
-    text-align: center;
-    padding: 20px;
-    background-color: #f7d25c; /* Yellow for the header */
-    border-radius: 10px;
-    margin-bottom: 20px;
-}
-
-header h1 {
-    margin: 0;
-    font-size: 2.5em;
-    color: #5a2d1a; /* Complementary maroon-brown */
+    background-color: white; 
+    color: #362c85; /
 }
 
 .card {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #5a2d1a; /* Maroon-brown background for the cards */
+    background-color: #362c85; 
     color: white;
     border-radius: 10px;
     padding: 20px;
-    margin-top: 7px;
+    margin-top: 20px;
     width: 80%;
     margin: 20px auto;
 }
@@ -45,9 +31,9 @@ header h1 {
 
 .card-image {
     width: 35%;
-    background-color: #f7d25c; /* Yellow for image placeholders */
+    background-color: #e3e0d9;
     border-radius: 10px;
-    height: 150px; /* Placeholder size for the image */
+    height: 150px;
 }
 
 .card h2 {
@@ -71,7 +57,7 @@ header h1 {
 footer {
     text-align: center;
     padding: 10px;
-    background-color: #5a2d1a; /* Maroon-brown footer */
+    background-color: #362c85; 
     color: white;
     border-radius: 10px;
     margin-top: 20px;

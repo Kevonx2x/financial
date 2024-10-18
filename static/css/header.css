@@ -1,25 +1,25 @@
-/* General Header Styles */
 header {
     display: flex;
     justify-content: space-between;
-    justify-content: center;
     align-items: center;
     padding: 10px 20px;
-    background-color: #9e9b93; /* Yellow-ish color */
+    background-color: #362c85; 
 }
 
 .logo h2 {
-    color: #801b1b; /* Maroon-ish color */
-    margin: 0;
+    color: #ffffff; 
+    margin-left: 10px;
 }
 
 .nav-menu {
     display: flex;
-    align-items: center;
+    align-items: right;
+    margin-right: 5px;
+    
 }
 
 .hamburger-btn {
-    display: none; /* Hide by default, will be shown for mobile */
+    display: none; 
     cursor: pointer;
     flex-direction: column;
 }
@@ -28,11 +28,11 @@ header {
     display: block;
     width: 25px;
     height: 3px;
-    background-color: #801b1b;
+    background-color: #ffffff;
     margin: 4px 0;
 }
 
-/* Hide the checkbox input (hamburger menu functionality) */
+
 input[type="checkbox"] {
     display: none;
 }
@@ -44,29 +44,6 @@ input[type="checkbox"] {
 
 .nav-options a {
     text-decoration: none;
-    color: #4b2e2e;
+    color: #ffffff;
     font-weight: bold;
-}
-
-/* Mobile Styling */
-@media (max-width: 768px) {
-    .nav-options {
-        display: none;
-        flex-direction: column;
-        gap: 10px;
-        background-color: #9e9b93;
-        position: absolute;
-        top: 60px;
-        right: 20px;
-        padding: 10px;
-        border-radius: 5px;
-    }
-
-    .hamburger-btn {
-        display: flex; /* Show hamburger menu on mobile */
-    }
-
-    input[type="checkbox"]:checked ~ .nav-options {
-        display: flex;
-    }
 }

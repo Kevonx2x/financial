@@ -1,0 +1,21 @@
+@media (max-width: 768px) {
+    .nav-options {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        background-color: #9e9b93;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    .hamburger-btn {
+        display: flex; 
+    }
+
+    input[type="checkbox"]:checked ~ .nav-options {
+        display: flex;
+    }
+}

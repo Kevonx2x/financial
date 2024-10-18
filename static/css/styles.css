@@ -1,0 +1,46 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.family-member-form {
+    width: 100%; /* Make form wide */
+    max-width: 600px; /* Set max width */
+    margin: 0 auto; /* Center the form */
+    margin-bottom: 10px; /* Space below the form */
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between; /* Space buttons evenly */
+    margin-top: 10px; /* Space above buttons */
+}
+
+.remove-button,
+.info-button,
+.add-button {
+    padding: 10px 15px;
+    cursor: pointer;
+    border: none; /* Remove default border */
+    color: white; /* White text */
+}
+
+.remove-button {
+    background-color: #ff4c4c; /* Red for removal */
+}
+
+.info-button {
+    background-color: #007bff; /* Blue for info */
+}
+
+.add-family-member {
+    margin-top: 10px; /* Space above add section */
+}
+
+.benefits-section {
+    margin-top: 10px; /* Space above benefits section */
+}
