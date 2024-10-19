@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family Members List</title>
+    <link rel="stylesheet" href="static/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Add Family Member</h1>
+        <div class="family-member-form">
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="role">Role:</label>
+                <input type="text" id="role" name="role" required>
+
+                <div class="button-container">
+                    <button type="submit" class="add-button">Add </button>
+                </div>
+            </form>
+        </div>
+
+        <h2>Active Members</h2>
+        <div class="member-list">
+            {% for member in family_members %}
+            <div class="member">
+                <span class="member-name">{{ member.name }}</span>
+                <span class="member-role">{{ member.role }}</span>
+                <div class="button-container">
+                    <button class="info-button">Info</button>
+                    <button class="remove-button">Remove</button>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
+
+{% endblock %}

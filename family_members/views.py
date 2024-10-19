@@ -5,7 +5,7 @@ from .forms import FamilyMemberForm
 
 def family_member_list(request):
     family_members = FamilyMember.objects.all()
-    return render(request, 'family_members_list.html', {'family_members': family_members})
+    return render(request, 'family_member_list.html', {'family_members': family_members})
 
 def family_member_create(request):
     if request.method == "POST":
@@ -16,6 +16,7 @@ def family_member_create(request):
     else:
         form = FamilyMemberForm()
     return render(request, 'family_member_form.html', {'form': form})
+
 
 def family_member_edit(request, pk):
     family_member = get_object_or_404(FamilyMember, pk=pk)
