@@ -1,7 +1,8 @@
-from django.urls import path
-from . import views
+from django.contrib import admin
+from django.urls import path, include  
 
 urlpatterns = [
-    path('', views.investments_list, name='investment_list'),  # Update here if the function is named investments_list
-    path('<int:id>/', views.investment_detail, name='investment_detail'),
+    path('admin/', admin.site.urls),
+    path('', include('family_members.urls')),  
+    path('', include('investments.urls')),  
 ]
