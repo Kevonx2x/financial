@@ -1,44 +1,63 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Home{% endblock %}
 
 {% block content %}
-    <div class="header">
-        <h1>Welcome to the Family Financial App!</h1>
-        <p>Manage your family investments and financial goals.</p>
-    </div>
+    <div class="hero-section">
+        <div class="hero-content">
+            <h1>Welcome to the Family Financial App!</h1>
+            <p>Manage your family investments and financial goals.</p>
 
-    <div class="card card-left">
-        <div class="card-content">
-            <h2>Investment Opportunities</h2>
-            <p>Explore a wide range of family-friendly investment options.</p>
+            <div class="button-container">
+                <a href="#" class="cta-button">Get Started</a>
+            </div>
         </div>
-        <div class="card-image">
-            
-        </div>
-    </div>
 
-    <div class="card card-right">
-        <div class="card-image">
-            
-        </div>
-        <div class="card-content">
-            <h2>Track Your Progress</h2>
-            <p>Keep an eye on how your investments are performing.</p>
+        <div class="hero-image">
+            <img src="{% static 'images/moneyimage.png' %}" alt="Moneyy">
         </div>
     </div>
 
-    <div class="card card-left">
-        <div class="card-content">
-            <h2>Financial Education</h2>
-            <p>Learn more about making smart financial decisions as a family.</p>
+    <div class="section">
+        <div class="card card-left">
+            <div class="card-content">
+                <h2>Investment Opportunities</h2>
+                <p>Explore a wide range of family-friendly investment options.</p>
+            </div>
+            <div class="card-image">
+                <img src="{% static 'images/investment.jpg' %}" alt="Investment Opportunities">
+            </div>
         </div>
-        <div class="card-image">
-            
+    </div>
+
+    <div class="section">
+        <div class="card card-right">
+            <div class="card-image">
+                <img src="{% static 'images/progress.jpg' %}" alt="Track Your Progress">
+            </div>
+            <div class="card-content">
+                <h2>Track Your Progress</h2>
+                <p>Keep an eye on how your investments are performing.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="card card-left">
+            <div class="card-content">
+                <h2>Financial Education</h2>
+                <p>Learn more about making smart financial decisions as a family.</p>
+            </div>
+            <div class="card-image">
+                <img src="{% static 'images/education.jpg' %}" alt="Financial Education">
+            </div>
         </div>
     </div>
 
     <div class="paragraph">
         <p>Start building a stronger financial future together.</p>
     </div>
+</div>
+
 {% endblock %}

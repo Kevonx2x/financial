@@ -1,64 +1,140 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: white; 
-    color: #362c85; /
+    font-family: 'Arial', sans-serif;
+    background-color: #ffffff; 
+    color: #940d0d; 
+    margin: 0;
+}
+
+.hero-section {
+    height: 100vh; 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+    background: white; 
+    color: white;
+    text-align: left; 
+    padding: 20px; 
+}
+
+.hero-content {
+    max-width: 400px; 
+}
+
+.hero-content h1 {
+    font-size: 2.8em; 
+    margin: 0;
+    font-weight: bold;
+}
+
+.hero-content p {
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+
+.button-container {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: center; /* Center the button horizontally */
+    margin-top: 20px; /* Space between the text and button */
+}
+
+.cta-button {
+    padding: 12px 24px; 
+    background-color: yellow; 
+    color: rgb(5, 5, 5);
+    text-decoration: none; 
+    border-radius: 5px; 
+    transition: background-color 0.3s ease; 
+    display: inline-block; /* Allow padding to take effect */
+}
+
+.cta-button:hover {
+    background-color: #000000; 
+}
+
+.hero-image {
+    max-width: 50%; 
+}
+
+.hero-image img {
+    width: 100%; 
+    height: auto; 
+    border-radius: 10px; 
 }
 
 .card {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #362c85; 
-    color: white;
-    border-radius: 10px;
+    background-color: #ffffff; 
+    color: #333; 
+    border-radius: 10px; 
     padding: 20px;
-    margin-top: 20px;
-    width: 80%;
-    margin: 20px auto;
+    margin: 20px auto; 
+    width: 80%; 
+    max-width: 1000px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
 .card-left {
-    flex-direction: row;
+    flex-direction: row; 
 }
 
 .card-right {
-    flex-direction: row-reverse;
+    flex-direction: row-reverse; 
 }
 
 .card-content {
-    width: 60%;
+    width: 60%; 
 }
 
-.card-image {
-    width: 35%;
-    background-color: #e3e0d9;
-    border-radius: 10px;
-    height: 150px;
-}
-
-.card h2 {
-    margin-top: 0;
-    font-size: 1.8em;
-}
-
-.card p {
-    font-size: 1.2em;
+.card-image img {
+    width: 100%; 
+    height: auto; 
+    border-radius: 10px; 
 }
 
 .paragraph {
-    text-align: center;
-    margin-top: 40px;
+    text-align: center; 
+    margin-top: 40px; 
 }
 
 .paragraph p {
-    font-size: 1.5em;
+    font-size: 1.5em; 
 }
 
-footer {
-    text-align: center;
-    padding: 10px;
-    background-color: #362c85; 
-    color: white;
-    border-radius: 10px;
-    margin-top: 20px;
+.family-member-form,
+.investment-container {
+    margin-top: 100px; 
+    margin-bottom: 100px; 
+}
+
+.member-list,
+.investment-list {
+    margin-top: 30px;
+}
+
+.member,
+.investment-item {
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+.add-investment-button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.add-investment-button:hover {
+    opacity: 0.8;
+}
+
+.scrollable-page {
+    height: 1500px;
 }

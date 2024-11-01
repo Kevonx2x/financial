@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}Investment Dashboard{% endblock %}
+
+{% block content %}
+<section class="introduction">
+    <h2>Welcome to Your Investment Dashboard</h2>
+    <p>Track your investment progress, explore options, and stay informed on finance.</p>
+</section>
+
+<section class="about-investing">
+    <h2>About Investing</h2>
+    <p>Investing involves allocating money to assets with the expectation of income or profit. Diversifying can help manage risk.</p>
+    <ul>
+        <li><strong>Stocks:</strong> Ownership in a company with dividend and growth potential.</li>
+        <li><strong>Bonds:</strong> Loans with fixed interest.</li>
+        <li><strong>Real Estate:</strong> Property investment offering rental income and appreciation.</li>
+        <li><strong>Gold:</strong> A hedge against inflation.</li>
+        <li><strong>ETFs:</strong> Asset collections trading like stocks, offering flexibility.</li>
+    </ul>
+</section>
+
+<section class="investment-list">
+    <h2>Your Investments</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Investment Name</th>
+                <th>Amount</th>
+                <th>Type</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for investment in investments %}
+            <tr>
+                <td>{{ investment.name }}</td>
+                <td>{{ investment.amount }}</td>
+                <td>{{ investment.investment_type }}</td>
+                <td>
+                    <a href="{% url 'edit_investment' investment.id %}">Edit</a> |
+                    <a href="{% url 'delete_investment' investment.id %}">Delete</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4">No investments found.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</section>
+
+<section class="add-investment">
+    <h3>Add New Investment</h3>
+    <form action="{% url 'add_investment' %}" method="POST">
+        {% csrf_token %}
+        <label for="name">Investment Name:</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="amount">Amount:</label>
+        <input type="number" id="amount" name="amount" required><br>
+
+        <label for="investment_type">Investment Type:</label>
+        <select id="investment_type" name="investment_type" required>
+            <option value="Stocks">Stocks</option>
+            <option value="Bonds">Bonds</option>
+            <option value="Real Estate">Real Estate</option>
+            <option value="Gold">Gold</option>
+            <option value="ETFs">ETFs</option>
+        </select><br>
+
+        <button class="add-investment-button" type="submit">Add Investment</button>
+    </form>
+</section>
+{% endblock %}

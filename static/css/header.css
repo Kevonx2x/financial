@@ -3,19 +3,22 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: #362c85; 
+    background-color: #000000; 
+    border-radius: 8rem;
 }
 
 .logo h2 {
     color: #ffffff; 
     margin-left: 10px;
+    font-family: 'Arial', sans-serif;
+    font-size: 2em; 
+    text-decoration: none; 
 }
 
 .nav-menu {
     display: flex;
     align-items: right;
     margin-right: 5px;
-    
 }
 
 .hamburger-btn {
@@ -32,7 +35,6 @@ header {
     margin: 4px 0;
 }
 
-
 input[type="checkbox"] {
     display: none;
 }
@@ -46,4 +48,19 @@ input[type="checkbox"] {
     text-decoration: none;
     color: #ffffff;
     font-weight: bold;
+    transition: color 0.3s ease; 
+    font-family: 'Arial', sans-serif; 
+}
+
+.nav-options a:hover {
+    color: #4a6bff; 
+}
+
+footer {
+    text-align: center; 
+    padding: 10px; 
+    background-color: #000000; 
+    color: white; 
+    border-radius: 10px; 
+    margin-top: 20px; 
 }

@@ -7,7 +7,6 @@ body {
 
 .container {
     max-width: 600px; 
-    margin-top: 100px; /*this not working for some reason */
     margin: 0 auto; 
     padding: 20px; 
     background-color: #fff; 
@@ -15,14 +14,16 @@ body {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
 }
 
+
+.family-member-form {
+    margin-top: 100px;
+    margin-bottom: 100px; 
+}
+
 h1, 
 h2 {
     text-align: center; 
     color: #007bff; 
-}
-
-.family-member-form {
-    margin-bottom: 20px; 
 }
 
 form {
@@ -78,7 +79,7 @@ input {
 
 .member {
     border: 1px solid #ddd; 
-    border-radius: 5px; 
+    border-radius: 5px;
     padding: 10px; 
     margin: 10px 0; 
     background-color: #f9f9f9; 
@@ -93,4 +94,54 @@ input {
 
 .member-role {
     font-style: italic; 
+}
+
+/* Investments Section */
+.investment-amount {
+    color: #28a745;
+}
+
+.investment-type {
+    font-style: italic;
+    color: #6c757d;
+}
+
+.investment-container {
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.investment-list {
+    margin-top: 100px; 
+    margin-bottom: 100px; 
+}
+
+.investment-item {
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+.add-investment-button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.add-investment-button:hover {
+    opacity: 0.8;
+}
+
+.scrollable-page {
+    height: 1500px; 
 }
