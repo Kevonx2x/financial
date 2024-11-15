@@ -26,10 +26,9 @@ urlpatterns = [
     path('family_members/', include('family_members.urls')),
     path('investments/', include('investments.urls')),
     path('training/', include('training_app.urls')),
-    path('accounts/', include('django.contrib.auth.urls')),
-    
+    path('accounts/', include('django.contrib.auth.urls')),  # Handles login, logout, etc.
+    path('accounts/signup/', include('accounts.urls')),  # Add signup URL here
 ]
 
-
-# url to serve static files (like css)
+# URL to serve static files (like CSS)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

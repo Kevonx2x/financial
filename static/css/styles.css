@@ -114,7 +114,7 @@ input:focus {
 
 .member {
     border: 1px solid #ddd;
-    border-radius: 8px;
+    border-radius: 8px; 
     padding: 20px;
     margin: 15px 0;
     background-color: #f9f9f9;
@@ -128,9 +128,9 @@ input:focus {
     font-weight: bold;
 }
 
-.member-role {
+/* .member-role {
     font-style: italic;
-}
+} */
 
 /* ========================================= Investment Section ============================================ */
 .investment-container {
@@ -189,7 +189,7 @@ input:focus {
 
 /* ========================================= Investment Amount Styles ===================================*/
 .investment-amount {
-    color: #8bb878;
+    color: #8bb878; 
     font-weight: bold;
     font-size: 1.4rem;
     margin-top: 10px;
@@ -358,16 +358,17 @@ tr:nth-child(even) {
 }
 
 .wealthbook-card .btn:hover {
-    background-color: #6aa857;
+    background-color: #123c06;
 }
 
 /* ================================  Family Members Page Styling ==================================== */
 .family-members-container {
     width: 100%;
+    height: 200vh;
     max-width: 900px;
     margin: 0 auto;
     padding: 30px;
-    font-family: Arial, sans-serif;
+    font-family: Helvetica, Arial;
 }
 
 .family-members-section h1 {
@@ -451,6 +452,11 @@ tr:nth-child(even) {
     transition: background-color 0.3s;
 }
 
-.submit-btn:hover {
-    background-color: #8bb878;
+.logo-img-signup {
+    max-width: 100px; /* Adjust as needed */
+    height: auto;
 }
+
+
+
+

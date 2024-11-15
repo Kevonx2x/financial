@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'investments',
     'family_members',
     'training_app', 
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -122,8 +123,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [str(BASE_DIR.joinpath("static"))]
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"  # Efficiently serves static files with caching in production.
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
@@ -132,3 +134,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# In settings.py
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home' 
+
+

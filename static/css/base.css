@@ -50,6 +50,21 @@ header .logo img {
     transform: scale(1.05);
 }
 
+.nav-link-btn {
+    margin-top: 1rem;
+    color: #000000;
+    text-decoration: none;
+    padding: 8px 10px;
+    font-size: 13px;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.nav-link-btn:hover {
+    background-color: rgba(59, 134, 27, 1);
+    transform: scale(1.05);
+}
+
 /* Nav Button */
 .nav-btn {
     background-color: #8bb878;
@@ -137,7 +152,7 @@ footer {
     width: 100%;
     bottom: 0;
     display: flex;
-    margin-top: 8rem;
+    margin-top: 25rem;
 }
 footer a {
     color: #000000;
