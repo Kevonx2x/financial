@@ -1,0 +1,24 @@
+Meet to get as much information as possible:
+- solving a problem
+
+
+Analysis:
+-idea of the problem
+-listing the functionalities / screen
+- get questions
+
+Work on creating the quote:
+- assign time to screens / functionalities
+- price = time (hrs) * hourly rate
+- ETA = time (hrs) / availability
+
+Contract:
+- functionality (detailed)
+- price (payment plan)
+- client responsibilities
+- what will the client get? deliverables
+    - source code? (who own the source coed??)
+    - website running?
+- Bugs
+    - include a hours (20hrs)
+    - time??

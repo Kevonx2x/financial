@@ -4,60 +4,69 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-    <div class="hero-section">
-        <div class="hero-content">
-            <h1>Welcome to the Family Financial App!</h1>
-            <p>Manage your family investments and financial goals.</p>
+<div class="container">
 
-            <div class="button-container">
-                <a href="#" class="cta-button">Get Started</a>
-            </div>
-        </div>
 
-        <div class="hero-image">
-            <img src="{% static 'images/moneyimage.png' %}" alt="Moneyy">
-        </div>
+    <section class="main-content">
+        <h1>Welcome to WealthBook</h1>
+        <p>Your journey to financial growth begins here.</p>
+    </section>
+</div>
+
+
+<div class="wealthbook-section">
+    <div class="wealthbook-info">
+        <h2>This is WealthBook</h2>
+        <p>Financial growth is a journey that requires both knowledge and commitment. At WealthBook, we are here to support you in every step of this journey. Our platform provides <a href="https://www.investopedia.com" target="_blank">investment insights</a>, financial tools, and a dedicated community that aims to build and sustain wealth. The best time to start is today; the future of your financial well-being depends on the decisions you make now.</p>
+
+        <p>Understanding how wealth works can help you make informed decisions. Through WealthBook, you have access to various <a href="https://www.forbes.com/advisor/investing/" target="_blank">investment options</a> that suit your unique financial goals. From stocks and bonds to more innovative options like ETFs and real estate, WealthBook enables you to create a diversified portfolio that grows alongside you.</p>
+
+        <p>Our platform is designed with families in mind, so everyone can work together to create long-lasting wealth. With WealthBook, you can learn financial strategies, set savings goals, and plan for the future. Start today by exploring our <a href="https://www.nerdwallet.com/article/investing" target="_blank">resources on building wealth</a>, or talk to one of our financial experts. Let us be your guide to a prosperous financial future.</p>
     </div>
-
-    <div class="section">
-        <div class="card card-left">
-            <div class="card-content">
-                <h2>Investment Opportunities</h2>
-                <p>Explore a wide range of family-friendly investment options.</p>
-            </div>
-            <div class="card-image">
-                <img src="{% static 'images/investment.jpg' %}" alt="Investment Opportunities">
-            </div>
+    
+ 
+    <div class="wealthbook-card">
+        <div class="card-content">
+            <h3>Join Our Community</h3>
+            <p>Connect with others who are on the same journey towards financial growth. Gain insights, share tips, and stay motivated together.</p>
+            <a href="" class="btn">Join Now</a>
         </div>
-    </div>
-
-    <div class="section">
-        <div class="card card-right">
-            <div class="card-image">
-                <img src="{% static 'images/progress.jpg' %}" alt="Track Your Progress">
-            </div>
-            <div class="card-content">
-                <h2>Track Your Progress</h2>
-                <p>Keep an eye on how your investments are performing.</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="section">
-        <div class="card card-left">
-            <div class="card-content">
-                <h2>Financial Education</h2>
-                <p>Learn more about making smart financial decisions as a family.</p>
-            </div>
-            <div class="card-image">
-                <img src="{% static 'images/education.jpg' %}" alt="Financial Education">
-            </div>
-        </div>
-    </div>
-
-    <div class="paragraph">
-        <p>Start building a stronger financial future together.</p>
     </div>
 </div>
 
+
+<div class="card-container">
+    <div class="card">
+        <img src="{% static 'images/familycard.jpg' %}" alt="Card Image 1" class="card-image">
+        <h3>Family Wealth Building</h3>
+        <p>Learn how to build a legacy by pooling resources and investing with family.</p>
+        <a href="{% url 'family_member_list' %}" class="btn">Explore Family</a>
+    </div>
+    <div class="card">
+        <img src="{% static 'images/investments.jpg' %}" alt="Card Image 2" class="card-image">
+        <h3>Investment Options</h3>
+        <p>Explore diverse investment opportunities that align with your financial goals.</p>
+        <a href="{% url 'investment_list' %}" class="btn">Explore Investments</a>
+    </div>
+    <div class="card">
+        <img src="{% static 'images/trainingcard.jpg' %}" alt="Card Image 3" class="card-image">
+        <h3>Financial Training</h3>
+        <p>Gain financial knowledge through training and resources designed for growth.</p>
+        <a href="{% url 'training_view' %}" class="btn">Start Training</a>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block footer %}
+<footer>
+    <div class="footer-content">
+        <p>&copy; 2024 WealthBook. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="/privacy-policy">Privacy Policy</a> | 
+            <a href="/terms-of-service">Terms of Service</a> | 
+            <a href="/contact-us">Contact Us</a>
+        </div>
+    </div>
+</footer>
 {% endblock %}

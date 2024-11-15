@@ -25,6 +25,9 @@ urlpatterns = [
     path('home/', home, name='home'), 
     path('family_members/', include('family_members.urls')),
     path('investments/', include('investments.urls')),
+    path('training/', include('training_app.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
+    
 ]
 
 

@@ -1,78 +1,272 @@
 {% extends 'base.html' %}
 {% load static %}
 
-
 {% block title %}Investment Dashboard{% endblock %}
 
 {% block content %}
-<section class="introduction">
-    <h2>Welcome to Your Investment Dashboard</h2>
-    <p>Track your investment progress, explore options, and stay informed on finance.</p>
-</section>
+<img src="{% static 'images/roadimage.png' %}" alt="WealthBook Logo" class="investment-image" >
+             
+<div class="investment-container">
+    <section class="hero">
+        <h1>Welcome to Your Investment Dashboard</h1>
+        <p>Your personal hub to track, manage, and grow your investments.</p>
+    </section>
 
-<section class="about-investing">
-    <h2>About Investing</h2>
-    <p>Investing involves allocating money to assets with the expectation of income or profit. Diversifying can help manage risk.</p>
-    <ul>
-        <li><strong>Stocks:</strong> Ownership in a company with dividend and growth potential.</li>
-        <li><strong>Bonds:</strong> Loans with fixed interest.</li>
-        <li><strong>Real Estate:</strong> Property investment offering rental income and appreciation.</li>
-        <li><strong>Gold:</strong> A hedge against inflation.</li>
-        <li><strong>ETFs:</strong> Asset collections trading like stocks, offering flexibility.</li>
-    </ul>
-</section>
 
-<section class="investment-list">
-    <h2>Your Investments</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>Investment Name</th>
-                <th>Amount</th>
-                <th>Type</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for investment in investments %}
-            <tr>
-                <td>{{ investment.name }}</td>
-                <td>{{ investment.amount }}</td>
-                <td>{{ investment.investment_type }}</td>
-                <td>
-                    <a href="{% url 'edit_investment' investment.id %}">Edit</a> |
-                    <a href="{% url 'delete_investment' investment.id %}">Delete</a>
-                </td>
-            </tr>
-            {% empty %}
-            <tr>
-                <td colspan="4">No investments found.</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-</section>
+    <section class="market-data">
+        <h2>Real-Time Market Data</h2>
 
-<section class="add-investment">
-    <h3>Add New Investment</h3>
-    <form action="{% url 'add_investment' %}" method="POST">
-        {% csrf_token %}
-        <label for="name">Investment Name:</label>
-        <input type="text" id="name" name="name" required><br>
 
-        <label for="amount">Amount:</label>
-        <input type="number" id="amount" name="amount" required><br>
+        <div class="category-section">
+            <h3>Stocks</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Last</th>
+                        <th>High</th>
+                        <th>Low</th>
+                        <th>Change</th>
+                        <th>Change %</th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Apple (AAPL)</td><td>175.36</td><td>178.50</td><td>173.80</td><td>+2.10</td><td>+1.21%</td><td>16:54:52</td></tr>
+                    <tr><td>Microsoft (MSFT)</td><td>310.50</td><td>315.00</td><td>308.10</td><td>-0.56</td><td>-0.18%</td><td>16:54:52</td></tr>
+                    <tr><td>Amazon (AMZN)</td><td>127.89</td><td>130.20</td><td>126.50</td><td>+1.50</td><td>+1.19%</td><td>16:54:52</td></tr>
+                    <tr><td>Google (GOOGL)</td><td>145.10</td><td>147.50</td><td>144.00</td><td>-0.90</td><td>-0.62%</td><td>16:54:52</td></tr>
+                    <tr><td>Dow Jones</td><td>33,900.50</td><td>34,200.00</td><td>33,700.50</td><td>-100.50</td><td>-0.30%</td><td>16:54:52</td></tr>
+                    <tr><td>S&P 500</td><td>4,270.10</td><td>4,290.50</td><td>4,250.80</td><td>+15.60</td><td>+0.36%</td><td>16:54:52</td></tr>
+                    <tr><td>Nasdaq</td><td>13,590.40</td><td>13,700.10</td><td>13,500.30</td><td>-25.10</td><td>-0.18%</td><td>16:54:52</td></tr>
+                </tbody>
+            </table>
+        </div>
 
-        <label for="investment_type">Investment Type:</label>
-        <select id="investment_type" name="investment_type" required>
-            <option value="Stocks">Stocks</option>
-            <option value="Bonds">Bonds</option>
-            <option value="Real Estate">Real Estate</option>
-            <option value="Gold">Gold</option>
-            <option value="ETFs">ETFs</option>
-        </select><br>
 
-        <button class="add-investment-button" type="submit">Add Investment</button>
-    </form>
-</section>
+        <div class="category-section">
+            <h3>Precious Metals</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Last</th>
+                        <th>High</th>
+                        <th>Low</th>
+                        <th>Change</th>
+                        <th>Change %</th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Gold</td><td>1,950.45</td><td>1,970.00</td><td>1,940.00</td><td>+5.15</td><td>+0.26%</td><td>16:54:52</td></tr>
+                    <tr><td>Silver</td><td>25.10</td><td>25.50</td><td>24.80</td><td>-0.10</td><td>-0.40%</td><td>16:54:52</td></tr>
+                    <tr><td>Platinum</td><td>1,020.75</td><td>1,040.00</td><td>1,010.50</td><td>+3.20</td><td>+0.31%</td><td>16:54:52</td></tr>
+                    <tr><td>Palladium</td><td>2,340.10</td><td>2,370.00</td><td>2,320.50</td><td>-15.00</td><td>-0.64%</td><td>16:54:52</td></tr>
+                    <tr><td>Rhodium</td><td>6,700.00</td><td>6,800.00</td><td>6,650.00</td><td>+50.00</td><td>+0.75%</td><td>16:54:52</td></tr>
+                    <tr><td>Iridium</td><td>4,800.00</td><td>4,850.00</td><td>4,780.00</td><td>-20.00</td><td>-0.41%</td><td>16:54:52</td></tr>
+                    <tr><td>Copper</td><td>4.21</td><td>4.25</td><td>4.18</td><td>+0.02</td><td>+0.48%</td><td>16:54:52</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+
+        <div class="category-section">
+            <h3>Bonds</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Last</th>
+                        <th>High</th>
+                        <th>Low</th>
+                        <th>Change</th>
+                        <th>Change %</th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>US 10-Year Treasury</td><td>3.56%</td><td>3.60%</td><td>3.50%</td><td>-0.02%</td><td>-0.56%</td><td>16:54:52</td></tr>
+                    <tr><td>US 30-Year Treasury</td><td>4.10%</td><td>4.15%</td><td>4.05%</td><td>+0.01%</td><td>+0.24%</td><td>16:54:52</td></tr>
+                    <tr><td>Corporate Bond (AAA)</td><td>2.85%</td><td>2.90%</td><td>2.80%</td><td>-0.01%</td><td>-0.35%</td><td>16:54:52</td></tr>
+                    <tr><td>Municipal Bond</td><td>1.95%</td><td>2.00%</td><td>1.90%</td><td>+0.02%</td><td>+1.04%</td><td>16:54:52</td></tr>
+                    <tr><td>High Yield Bond</td><td>5.50%</td><td>5.55%</td><td>5.45%</td><td>-0.02%</td><td>-0.36%</td><td>16:54:52</td></tr>
+                    <tr><td>Euro Bond</td><td>1.10%</td><td>1.12%</td><td>1.08%</td><td>+0.01%</td><td>+0.90%</td><td>16:54:52</td></tr>
+                    <tr><td>Green Bond</td><td>2.00%</td><td>2.03%</td><td>1.98%</td><td>+0.00%</td><td>+0.00%</td><td>16:54:52</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+
+        <div class="category-section">
+            <h3>Real Estate</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Last</th>
+                        <th>High</th>
+                        <th>Low</th>
+                        <th>Change</th>
+                        <th>Change %</th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Vanguard REIT (VNQ)</td><td>80.21</td><td>81.50</td><td>79.80</td><td>-0.45</td><td>-0.56%</td><td>16:54:52</td></tr>
+                    <tr><td>Blackstone Real Estate Income Trust (BREIT)</td><td>100.02</td><td>101.30</td><td>99.80</td><td>+0.20</td><td>+0.20%</td><td>16:54:52</td></tr>
+                    <tr><td>US Housing Market Index</td><td>300.00</td><td>305.00</td><td>295.00</td><td>+5.00</td><td>+1.70%</td><td>16:54:52</td></tr>
+                    <tr><td>Prologis Inc. (PLD)</td><td>120.75</td><td>122.00</td><td>118.50</td><td>-0.60</td><td>-0.49%</td><td>16:54:52</td></tr>
+                    <tr><td>Simon Property Group (SPG)</td><td>105.50</td><td>106.80</td><td>104.20</td><td>+0.80</td><td>+0.76%</td><td>16:54:52</td></tr>
+                    <tr><td>Real Estate Select Sector (XLRE)</td><td>35.60</td><td>36.00</td><td>35.00</td><td>+0.20</td><td>+0.56%</td><td>16:54:52</td></tr>
+                    <tr><td>American Tower Corporation (AMT)</td><td>210.00</td><td>212.50</td><td>208.30</td><td>-1.50</td><td>-0.71%</td><td>16:54:52</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+</div>
+
+    <section class="add-investment">
+        <h3>Add New Investment</h3>
+        <form id="investmentForm" action="{% url 'add_investment' %}" method="POST" >
+            {% csrf_token %}
+
+
+            <label for="investment_type">Investment Type:</label>
+            <select id="investment_type" name="investment_type" required onchange="updateInvestmentOptions()">
+                <option value="">Select Type</option>
+                <option value="Stocks">Stocks</option>
+                <option value="Precious Metals">Precious Metals</option>
+                <option value="Bonds">Bonds</option>
+                <option value="Real Estate">Real Estate</option>
+            </select><br>
+
+
+            <label for="investment_name">Investment Name:</label>
+            <select id="investment_name" name="investment_name" required onchange="updatePricePerUnit()">
+            </select><br>
+
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" min="1" value="1" required oninput="calculateTotalCost()"><br>
+
+            <label for="price_per_unit">Price per Unit:</label>
+            <input type="text" id="price_per_unit" name="price_per_unit" readonly><br>
+
+
+            <label for="total_cost">Total Cost:</label>
+            <input type="text" id="total_cost" name="total_cost" readonly><br>
+
+            <button type="submit" class="add-investment-button">Add Investment</button>
+        </form>
+    </section>
+
+
+    <script>
+    const investmentOptions = {
+        'Stocks': {
+            'Apple': 150,
+            'S&P 500': 4300,
+            'Dow Jones': 35000,
+            'Tesla': 700,
+            'Amazon': 3300,
+            'Microsoft': 290,
+            'Nvidia': 220
+        },
+        'Precious Metals': {
+            'Gold': 1950,
+            'Silver': 25,
+            'Platinum': 1000,
+            'Palladium': 2300,
+            'Copper': 4.50,
+            'Rhodium': 14500,
+            'Iridium': 5000
+        },
+        'Bonds': {
+            'US Treasury Bond': 1000,
+            'Corporate Bond': 1200,
+            'Municipal Bond': 1050,
+            'Government Bond': 950,
+            'Junk Bond': 800,
+            'Foreign Bond': 1100,
+            'Zero-Coupon Bond': 500
+        },
+        'Real Estate': {
+            'Vanguard REIT (VNQ)': 80.21,
+            'Blackstone REIT (BREIT)': 100.02,
+            'Prologis Inc. (PLD)': 120.75,
+            'Simon Property Group (SPG)': 105.50,
+            'Real Estate Select Sector (XLRE)': 35.60,
+            'American Tower Corporation (AMT)': 210.00,
+            'US Housing Market Index': 300.00
+        }
+    };
+
+        function updateInvestmentOptions() {
+            const investmentType = document.getElementById('investment_type').value;
+            const investmentNameDropdown = document.getElementById('investment_name');
+            investmentNameDropdown.innerHTML = '';
+
+            if (investmentType && investmentOptions[investmentType]) {
+                Object.keys(investmentOptions[investmentType]).forEach(name => {
+                    const option = document.createElement('option');
+                    option.value = name;
+                    option.textContent = name;
+                    investmentNameDropdown.appendChild(option);
+                });
+                updatePricePerUnit();
+            }
+        }
+
+        function updatePricePerUnit() {
+            const investmentType = document.getElementById('investment_type').value;
+            const investmentName = document.getElementById('investment_name').value;
+            const pricePerUnit = investmentType && investmentName ? investmentOptions[investmentType][investmentName] : 0;
+            document.getElementById('price_per_unit').value = pricePerUnit;
+            calculateTotalCost();
+        }
+
+        function calculateTotalCost() {
+            const quantity = parseFloat(document.getElementById('quantity').value) || 0;
+            const pricePerUnit = parseFloat(document.getElementById('price_per_unit').value) || 0;
+            document.getElementById('total_cost').value = (quantity * pricePerUnit).toFixed(2);
+        }
+    </script>
+
+
+    <section class="investment-list">
+        <h2>Your Investments</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Investment Type</th>
+                    <th>Investment Name</th>
+                    <th>Quantity</th>
+                    <th>Price per Unit</th>
+                    <th>Total Cost</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for investment in investments %}
+                <tr>
+                    <td>{{ investment.investment_type }}</td>
+                    <td>{{ investment.investment_name }}</td>
+                    <td>{{ investment.quantity }}</td>
+                    <td>${{ investment.price_per_unit }}</td>
+                    <td>${{ investment.total_cost }}</td>
+                    <td>
+                        <a href="{% url 'edit_investment' investment.id %}">Edit</a> |
+                        <a href="{% url 'delete_investment' investment.id %}">Delete</a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="6">No investments found.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+</div>
 {% endblock %}

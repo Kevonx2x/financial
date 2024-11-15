@@ -1,11 +1,20 @@
-<h2>Are you sure you want to delete {{ family_member.name }}?</h2>
+{% extends 'base.html' %}
 
-
-<form method="POST">
-
-  {% csrf_token %}
-
-  <button type="submit">Yes, delete</button>
-  
-</form>
-<a href="{% url 'family_member_list' %}">Cancel</a>
+{% block content %}
+<div class="confirmation-container">
+    <div class="confirmation-box">
+        <h2 class="confirmation-heading">Confirm Deletion</h2>
+        <p class="confirmation-message">
+            Are you sure you want to delete <strong>{{ family_member.name }}</strong>? 
+            This action cannot be undone.
+        </p>
+        <div class="confirmation-actions">
+            <form method="POST" class="confirmation-form">
+                {% csrf_token %}
+                <button type="submit" class="btn-confirm">Yes, delete</button>
+            </form>
+            <a href="{% url 'family_member_list' %}" class="btn-cancel">Cancel</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

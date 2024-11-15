@@ -20,38 +20,22 @@
 
 </head>
 <body>
-    <header class="center-row">
 
-        <!-- Left Section -->
-        <div class="logo center-row">
+
+    <header>
+        <div class="logo">
             <a href="{% url 'home' %}">
-                <h2>Family Financial App</h2> 
-            </a>     
+                <img src="{% static 'images/logo.png' %}" alt="WealthBook Logo" class="logo-img">
+                <span class="cursive-text">Wealthbook</span>
+            </a>
         </div>
-    
-        <!-- Right Section -->
         <nav class="nav-menu">
-    
-            <!-- Hamburger -->
-            <input type="checkbox" id="checkBox">
-    
-            <div class="hamburger-btn">
-                <label for="checkBox">
-                    <span></span>
-                    <span></span> 
-                    <span></span>
-                </label>
-            </div>
-    
-            <!-- Menu Options  -->
-            <div class="nav-options center-row">
-                <a href="{% url 'home' %}">Home</a>
-                <a href="{% url 'family_member_list' %}">Family Members</a>
-                <a href="{% url 'investment_list' %}">Investments</a>
-            </div>
-            
+            <a href="{% url 'home' %}" class="nav-link">Home</a>
+            <a href="{% url 'family_member_list' %}" class="nav-link">Family Profile</a>
+            <a href="{% url 'investment_list' %}" class="nav-link">Investments</a>
+            <a href="{% url 'training_view' %}" class="nav-link">Training</a>
+            <button class="nav-btn">Log In</button>
         </nav>
-    
     </header>
     
 
@@ -61,7 +45,18 @@
     </main>
 
     <footer>
-        <p>&copy; {{ current_year }} Family Financial App</p>
+        <div class="footer-content">
+            <p>&copy; 2024 Your Company Name. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="/privacy-policy">Privacy Policy</a> | 
+                <a href="/terms-of-service">Terms of Service</a> | 
+                <a href="/contact-us">Contact Us</a>
+            </div>
+        </div>
     </footer>
+    
+
+  
+
 </body>
 </html>

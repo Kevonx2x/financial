@@ -1,49 +1,50 @@
 {% extends 'base.html' %}
-
 {% load static %}
 
+{% block title %}Family Members List{% endblock %}
+
 {% block content %}
+<div class="container family-members-container">
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Family Members List</title>
-    <link rel="stylesheet" href="static/css/styles.css">
-</head>
-<body>
-    <div class="container">
-        <h1>Add Family Member</h1>
-        <div class="family-member-form">
-            <form>
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
+    <section class="description">
+        <h1 class="page-title">Family Members Management</h1>
+        <p class="description-text">
+            Welcome to the Family Members Management page. Here, you can add new family members, update their
+            information, or remove them from your family group.
+            This page helps you manage your family roles, responsibilities, and contributions within your financial
+            platform.
+        </p>
+    </section>
 
-                <label for="role">Role:</label>
-                <input type="text" id="role" name="role" required>
 
-                <div class="button-container">
-                    <button type="submit" class="add-button">Add </button>
-                </div>
-            </form>
-        </div>
+    <section class="instructions">
+        <h2>How to Use This Page</h2>
+        <ul class="instructions-list">
+            <li>Click "Add" to create a new family member entry.</li>
+            <li>If you need to update any family member details, click "Edit" next to their name.</li>
+            <li>To remove a member, click "Remove" to delete their entry from the system.</li>
+            <li>Active family members will be displayed below. Each member has a role and responsibilities.</li>
+        </ul>
+    </section>
 
-        <h2>Active Members</h2>
-        <div class="member-list">
-            {% for member in family_members %}
-            <div class="member">
-                <span class="member-name">{{ member.name }}</span>
-                <span class="member-role">{{ member.role }}</span>
-                <div class="button-container">
-                    <button class="info-button">Info</button>
-                    <button class="remove-button">Remove</button>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
+    <div class="family-member-form">
+
+        <a class="add-member-btn" href="{% url 'add_family_member'%}">Add Family Member</a>
     </div>
-</body>
-</html>
 
+
+    <h2 class="member-list-title">Active Members</h2>
+    <div class="member-list">
+        {% for member in family_members %}
+        <div class="member">
+            <span class="member-name">{{ member.name }}</span>
+            <span class="member-role">{{ member.role }}</span>
+            <div class="button-container">
+                <a href="{% url 'family_member_edit' member.id %}" class="info-button">Edit</a>
+                <a href="{% url 'family_member_confirm_delete' member.id %}" class="remove-button">Remove</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}

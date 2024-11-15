@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Family Members List{% endblock %}
+
+{% block content %}
+
+<section class="add-family-member">
+
+    <div class="title-with-icon">
+        <h2>Add Family Member</h2>
+    </div>
+
+
+    <form method="POST" action=".">
+        {% csrf_token %}
+
+        <label for="name">Family Member Name</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="relationship">Role</label>
+        <input type="text" id="role" name="role" required>
+
+        <label for="relationship">Birth Date</label>
+        <input type="date" id="birth_date" name="birth_date" required>
+
+
+        <button type="submit" class="btn add-button">Add Family Member</button>
+    </form>
+</section>
+
+{% endblock %}

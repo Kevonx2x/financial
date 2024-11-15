@@ -1,18 +1,10 @@
+{% extends 'base.html' %}
 
-
-<h2>{% if form.instance.pk %}Edit{% else %}Add{% endif %} Family Member</h2>
-
-
-
-
-<form method="POST">
-
-  {% csrf_token %}
-
-  {{ form.as_p }}
-
-  <button type="submit">Save</button>
-
-
-
-</form>
+{% block content %}
+  <h2>Edit Family Member</h2>
+  <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+  </form>
+{% endblock %}
