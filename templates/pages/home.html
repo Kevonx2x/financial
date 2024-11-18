@@ -10,18 +10,54 @@
     <section class="main-content">
         <h1>Welcome to WealthBook</h1>
         <p>Your journey to financial growth begins here.</p>
+        
+        <!-- Added content -->
+        <div class="journey-details">
+            <h2>Why Choose WealthBook?</h2>
+            <p>
+                WealthBook is your trusted companion in building a secure financial future. 
+                From personalized investment insights to family wealth management tools, 
+                we make financial growth accessible to everyone.
+            </p>
+            
+            
+            <h2>Get Started Today</h2>
+            <p>
+                Whether you're new to investing or a seasoned expert, WealthBook is designed 
+                to help you grow. Sign up now and take the first step towards financial freedom.
+            </p>
+            
+            <div class="call-to-action">
+                <a href="/" class="cta-button">Learn More</a>
+            </div>
+        </div>
     </section>
 </div>
 
+<div class="blackquote">
+    <blockquote>
+        <p>
+            "The best investment you can make is in yourself. The more you learn, 
+            the more you earn." - Warren Buffett
+        </p>
+    </blockquote>
+
+</div>
 
 <div class="wealthbook-section">
     <div class="wealthbook-info">
-        <h2>This is WealthBook</h2>
-        <p>Financial growth is a journey that requires both knowledge and commitment. At WealthBook, we are here to support you in every step of this journey. Our platform provides <a href="https://www.investopedia.com" target="_blank">investment insights</a>, financial tools, and a dedicated community that aims to build and sustain wealth. The best time to start is today; the future of your financial well-being depends on the decisions you make now.</p>
+        <h2>About Us</h2>
+<p>Financial growth is a journey that requires both knowledge and commitment. At WealthBook, we are here to support you in every step of this journey. Our platform provides <a href="https://www.investopedia.com" target="_blank">investment insights</a>, financial tools, and a dedicated community that aims to build and sustain wealth. The best time to start is today; the future of your financial well-being depends on the decisions you make now.</p>
 
-        <p>Understanding how wealth works can help you make informed decisions. Through WealthBook, you have access to various <a href="https://www.forbes.com/advisor/investing/" target="_blank">investment options</a> that suit your unique financial goals. From stocks and bonds to more innovative options like ETFs and real estate, WealthBook enables you to create a diversified portfolio that grows alongside you.</p>
+<p>Understanding how wealth works can help you make informed decisions. Through WealthBook, you have access to various <a href="https://www.forbes.com/advisor/investing/" target="_blank">investment options</a> that suit your unique financial goals. From stocks and bonds to more innovative options like ETFs and real estate, WealthBook enables you to create a diversified portfolio that grows alongside you.</p>
 
-        <p>Our platform is designed with families in mind, so everyone can work together to create long-lasting wealth. With WealthBook, you can learn financial strategies, set savings goals, and plan for the future. Start today by exploring our <a href="https://www.nerdwallet.com/article/investing" target="_blank">resources on building wealth</a>, or talk to one of our financial experts. Let us be your guide to a prosperous financial future.</p>
+<p>Our platform is designed with families in mind, so everyone can work together to create long-lasting wealth. With WealthBook, you can learn financial strategies, set savings goals, and plan for the future. Start today by exploring our <a href="https://www.nerdwallet.com/article/investing" target="_blank">resources on building wealth</a>, or talk to one of our financial experts. Let us be your guide to a prosperous financial future.</p>
+
+<h3>About Me</h3>
+<p>My name is TJ, and the idea for WealthBook came from my desire to help families achieve financial independence and security. I’ve always been passionate about finance and how it shapes our lives, but I’ve also seen how difficult it can be for everyday people to navigate the world of investments. WealthBook is my answer to that challenge— a platform where families can learn, grow, and take control of their financial futures together.</p>
+
+<p>As someone who believes in the power of education and community, I wanted to create a space where people could find both the knowledge and tools to make smarter financial decisions. Whether it's learning about stocks, real estate, or saving strategies, I believe that everyone deserves access to resources that can help them succeed financially. This project is not just about growing wealth— it's about empowering individuals and families to create lasting prosperity that transcends generations.</p>
+
     </div>
     
  
@@ -46,7 +82,7 @@
         <img src="{% static 'images/investments.jpg' %}" alt="Card Image 2" class="card-image">
         <h3>Investment Options</h3>
         <p>Explore diverse investment opportunities that align with your financial goals.</p>
-        <a href="{% url 'investment_list' %}" class="btn">Explore Investments</a>
+        <a href="{% url 'investments:investments_list' %}" class="btn">Explore Investments</a>
     </div>
     <div class="card">
         <img src="{% static 'images/trainingcard.jpg' %}" alt="Card Image 3" class="card-image">
@@ -55,6 +91,29 @@
         <a href="{% url 'training_view' %}" class="btn">Start Training</a>
     </div>
 </div>
+
+<!-- New set of cards -->
+<div class="card-container">
+    <div class="card">
+        <img src="{% static 'images/goalsetting.jpg' %}" alt="Card Image 4" class="card-image">
+        <h3>Goal Setting</h3>
+        <p>Set actionable financial goals and learn how to achieve them step by step.</p>
+        <a href="#" class="btn">Set Goals</a>
+    </div>
+    <div class="card">
+        <img src="{% static 'images/retirementplanning.jpg' %}" alt="Card Image 5" class="card-image">
+        <h3>Retirement Planning</h3>
+        <p>Plan your retirement with confidence and secure your financial future.</p>
+        <a href="#" class="btn">Plan Now</a>
+    </div>
+    <div class="card">
+        <img src="{% static 'images/education.jpg' %}" alt="Card Image 6" class="card-image">
+        <h3>Education Savings</h3>
+        <p>Learn strategies to save for educational expenses and future growth.</p>
+        <a href="#" class="btn">Save for Education</a>
+    </div>
+</div>
+
 
 {% endblock %}
 

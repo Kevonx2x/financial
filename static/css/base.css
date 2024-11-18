@@ -103,7 +103,8 @@ p {
 
 /* ========== Container Styles ========== */
 .container {
-    min-height: 100vh;
+    margin-left: 10rem;
+    min-height: 50vh;
     background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(59, 134, 27, 0.65)),
         url('../images/wealthbook.png');
     background-size: 20% auto;
@@ -152,7 +153,7 @@ footer {
     width: 100%;
     bottom: 0;
     display: flex;
-    margin-top: 25rem;
+    margin-top: 15rem;
 }
 footer a {
     color: #000000;

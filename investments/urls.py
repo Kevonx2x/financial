@@ -1,14 +1,13 @@
 from django.urls import path
 from . import views
 
+app_name = 'investments'
+
 urlpatterns = [
-    path('investments/', views.investment_list, name='investment_list'),
-    path('investments/edit/<int:id>/', views.edit_investment, name='edit_investment'),
-    path('investments/delete/<int:id>/', views.delete_investment, name='delete_investment'),
-    path('investments/add/', views.add_investment, name='add_investment'),
+    path('investments/', views.investments_list, name='investments_list'),
     path('investments/confirm/', views.investment_confirm, name='investment_confirm'),
-    path('add_investment/', views.add_investment, name='add_investment'),
-    path('investment_confirm/', views.investment_confirm, name='investment_confirm'),
-    path('investment_list/', views.investment_list, name='investment_list'),
+    path('finalize_investment/<int:id>/', views.finalize_investment, name='finalize_investment'),
+    path('edit_investment/<int:id>/', views.edit_investment, name='edit_investment'),
+    path('delete_investment/<int:id>/', views.delete_investment, name='delete_investment'),
 ]
 

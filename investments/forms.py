@@ -4,4 +4,4 @@ from .models import Investment
 class InvestmentForm(forms.ModelForm):
     class Meta:
         model = Investment
-        fields = ['name', 'amount', 'investment_type']
+        fields = ['name', 'amount', 'investment_type']  

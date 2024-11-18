@@ -3,5 +3,6 @@
 <form method="POST">
     {% csrf_token %}
     <button type="submit">Yes, delete</button>
-    <a href="{% url 'investment_list' %}">Cancel</a>
+    <a href="{% url 'investments:investments_list' %}">Cancel</a>
+
 </form>

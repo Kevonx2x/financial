@@ -2,9 +2,9 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .models import UserProgress
 
-@login_required  # Ensure the user is authenticated
+@login_required 
 def training_view(request):
-    # Now we are guaranteed that request.user is authenticated
+
     user_progress = {
         up.video_id: up.completed for up in UserProgress.objects.filter(user=request.user)
     }

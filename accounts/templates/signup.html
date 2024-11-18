@@ -5,20 +5,20 @@
 <div style="display: flex; align-items: center; justify-content: center; min-height: 100vh; background-color: #f0f2f5;">
     <div style="width: 100%; max-width: 400px; padding: 2em; background-color: #fff; border-radius: 8px; text-align: center;">
         
-        <!-- Logo Section -->
+
         <div style="margin-bottom: 1em;">
             {% if logo_url %}
                 <img src="{{ logo_url }}" alt="Logo" style="max-width: 150px; height: auto;">
             {% else %}
-                <!-- Placeholder if no logo is provided -->
+
                 <img src="{% static 'images/signup.png' %}" alt="WealthBook Logo" class="logo-img-signup">
             {% endif %}
         </div>
         
-        <!-- Signup Form Title -->
+>
         <h1>Create an Account</h1>
         
-        <!-- Signup Form -->
+    
         <form method="post" style="text-align: left;">
             {% csrf_token %}
             

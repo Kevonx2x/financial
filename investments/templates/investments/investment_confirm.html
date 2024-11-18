@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Confirm Investment</h2>
+
+    <p><strong>Investment Type:</strong> {{ investment.investment_type }}</p>
+    <p><strong>Investment Name:</strong> {{ investment.name }}</p>
+    <p><strong>Quantity:</strong> {{ investment.quantity }}</p>
+    <p><strong>Price per Unit:</strong> ${{ investment.amount }}</p>
+
+    <form method="post" action="{% url 'investments:finalize_investment' investment.id %}">
+        {% csrf_token %}
+        <button type="submit">Confirm Investment</button>
+    </form>
+
+    <a href="{% url 'investments:investments_list' %}">Go Back</a>
+{% endblock %}

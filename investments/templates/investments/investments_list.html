@@ -97,7 +97,6 @@
             </table>
         </div>
 
-
         <div class="category-section">
             <h3>Real Estate</h3>
             <table>
@@ -116,8 +115,7 @@
                     <tr><td>Vanguard REIT (VNQ)</td><td>80.21</td><td>81.50</td><td>79.80</td><td>-0.45</td><td>-0.56%</td><td>16:54:52</td></tr>
                     <tr><td>Blackstone Real Estate Income Trust (BREIT)</td><td>100.02</td><td>101.30</td><td>99.80</td><td>+0.20</td><td>+0.20%</td><td>16:54:52</td></tr>
                     <tr><td>US Housing Market Index</td><td>300.00</td><td>305.00</td><td>295.00</td><td>+5.00</td><td>+1.70%</td><td>16:54:52</td></tr>
-                    <tr><td>Prologis Inc. (PLD)</td><td>120.75</td><td>122.00</td><td>118.50</td><td>-0.60</td><td>-0.49%</td><td>16:54:52</td></tr>
-                    <tr><td>Simon Property Group (SPG)</td><td>105.50</td><td>106.80</td><td>104.20</td><td>+0.80</td><td>+0.76%</td><td>16:54:52</td></tr>
+                    <tr><td>Prologis Inc. (PLD)</td><td>120.75</td><td>122.00</td><td>118.50</td><td>-0.60</td><td>-0.49%</td><td>16:54:52</td></tr>                    |
                     <tr><td>Real Estate Select Sector (XLRE)</td><td>35.60</td><td>36.00</td><td>35.00</td><td>+0.20</td><td>+0.56%</td><td>16:54:52</td></tr>
                     <tr><td>American Tower Corporation (AMT)</td><td>210.00</td><td>212.50</td><td>208.30</td><td>-1.50</td><td>-0.71%</td><td>16:54:52</td></tr>
                 </tbody>
@@ -127,116 +125,71 @@
     </section>
 </div>
 
-    <section class="add-investment">
-        <h3>Add New Investment</h3>
-        <form id="investmentForm" action="{% url 'add_investment' %}" method="POST" >
-            {% csrf_token %}
+<div class="investment-container">
+<h2>Add New Investment</h2>
 
-
+<form method="post" action="{% url 'investments:investment_confirm' %}" class="investment-form">
+    {% csrf_token %}
+    <fieldset>
+        <legend>Add New Investment</legend>
+        
+        <div class="form-group">
             <label for="investment_type">Investment Type:</label>
-            <select id="investment_type" name="investment_type" required onchange="updateInvestmentOptions()">
-                <option value="">Select Type</option>
-                <option value="Stocks">Stocks</option>
-                <option value="Precious Metals">Precious Metals</option>
-                <option value="Bonds">Bonds</option>
-                <option value="Real Estate">Real Estate</option>
-            </select><br>
+            <select id="investment_type" name="investment_type" required>
+                <option value="" disabled selected>Select Type</option>
+                <option value="1">Stocks</option>
+                <option value="2">Precious Metals</option>
+                <option value="3">Bonds</option>
+                <option value="4">Real Estate</option>
+            </select>
+        </div>
 
+        <div class="form-group">
+            <label for="investment_name">Select Investment:</label>
+            <select id="investment_name" name="investment_name" required>
+                <option value="" disabled selected>Select Investment</option>
+                <!-- Investment Options -->
+                {% comment %} Stocks {% endcomment %}
+                <optgroup label="Stocks">
+                    <option value="1_150">Apple ($150)</option>
+                    <option value="2_4300">S&P 500 ($4,300)</option>
+                    <option value="3_35000">Dow Jones ($35,000)</option>
+                </optgroup>
+                {% comment %} Precious Metals {% endcomment %}
+                <optgroup label="Precious Metals">
+                    <option value="4_1950">Gold ($1,950)</option>
+                    <option value="5_25">Silver ($25)</option>
+                    <option value="6_1000">Platinum ($1,000)</option>
+                </optgroup>
+                {% comment %} Bonds {% endcomment %}
+                <optgroup label="Bonds">
+                    <option value="7_1000">US Treasury Bond ($1,000)</option>
+                    <option value="8_1200">Corporate Bond ($1,200)</option>
+                    <option value="9_1050">Municipal Bond ($1,050)</option>
+                </optgroup>
+                {% comment %} Real Estate {% endcomment %}
+                <optgroup label="Real Estate">
+                    <option value="10_80.21">Vanguard REIT ($80.21)</option>
+                    <option value="11_100.02">Blackstone REIT ($100.02)</option>
+                    <option value="12_120.75">Prologis Inc. ($120.75)</option>
+                </optgroup>
+            </select>
+        </div>
 
-            <label for="investment_name">Investment Name:</label>
-            <select id="investment_name" name="investment_name" required onchange="updatePricePerUnit()">
-            </select><br>
-
+        <div class="form-group">
             <label for="quantity">Quantity:</label>
-            <input type="number" id="quantity" name="quantity" min="1" value="1" required oninput="calculateTotalCost()"><br>
-
-            <label for="price_per_unit">Price per Unit:</label>
-            <input type="text" id="price_per_unit" name="price_per_unit" readonly><br>
-
-
-            <label for="total_cost">Total Cost:</label>
-            <input type="text" id="total_cost" name="total_cost" readonly><br>
-
-            <button type="submit" class="add-investment-button">Add Investment</button>
-        </form>
-    </section>
+            <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Review Purchase</button>
+    </fieldset>
+</form>
 
 
-    <script>
-    const investmentOptions = {
-        'Stocks': {
-            'Apple': 150,
-            'S&P 500': 4300,
-            'Dow Jones': 35000,
-            'Tesla': 700,
-            'Amazon': 3300,
-            'Microsoft': 290,
-            'Nvidia': 220
-        },
-        'Precious Metals': {
-            'Gold': 1950,
-            'Silver': 25,
-            'Platinum': 1000,
-            'Palladium': 2300,
-            'Copper': 4.50,
-            'Rhodium': 14500,
-            'Iridium': 5000
-        },
-        'Bonds': {
-            'US Treasury Bond': 1000,
-            'Corporate Bond': 1200,
-            'Municipal Bond': 1050,
-            'Government Bond': 950,
-            'Junk Bond': 800,
-            'Foreign Bond': 1100,
-            'Zero-Coupon Bond': 500
-        },
-        'Real Estate': {
-            'Vanguard REIT (VNQ)': 80.21,
-            'Blackstone REIT (BREIT)': 100.02,
-            'Prologis Inc. (PLD)': 120.75,
-            'Simon Property Group (SPG)': 105.50,
-            'Real Estate Select Sector (XLRE)': 35.60,
-            'American Tower Corporation (AMT)': 210.00,
-            'US Housing Market Index': 300.00
-        }
-    };
-
-        function updateInvestmentOptions() {
-            const investmentType = document.getElementById('investment_type').value;
-            const investmentNameDropdown = document.getElementById('investment_name');
-            investmentNameDropdown.innerHTML = '';
-
-            if (investmentType && investmentOptions[investmentType]) {
-                Object.keys(investmentOptions[investmentType]).forEach(name => {
-                    const option = document.createElement('option');
-                    option.value = name;
-                    option.textContent = name;
-                    investmentNameDropdown.appendChild(option);
-                });
-                updatePricePerUnit();
-            }
-        }
-
-        function updatePricePerUnit() {
-            const investmentType = document.getElementById('investment_type').value;
-            const investmentName = document.getElementById('investment_name').value;
-            const pricePerUnit = investmentType && investmentName ? investmentOptions[investmentType][investmentName] : 0;
-            document.getElementById('price_per_unit').value = pricePerUnit;
-            calculateTotalCost();
-        }
-
-        function calculateTotalCost() {
-            const quantity = parseFloat(document.getElementById('quantity').value) || 0;
-            const pricePerUnit = parseFloat(document.getElementById('price_per_unit').value) || 0;
-            document.getElementById('total_cost').value = (quantity * pricePerUnit).toFixed(2);
-        }
-    </script>
-
-
-    <section class="investment-list">
-        <h2>Your Investments</h2>
-        <table>
+<section class="investment-list">
+    <h2>Your Investments</h2>
+    <div class="table-container">
+        <table class="investment-table">
             <thead>
                 <tr>
                     <th>Investment Type</th>
@@ -251,13 +204,13 @@
                 {% for investment in investments %}
                 <tr>
                     <td>{{ investment.investment_type }}</td>
-                    <td>{{ investment.investment_name }}</td>
+                    <td>{{ investment.name }}</td>
                     <td>{{ investment.quantity }}</td>
                     <td>${{ investment.price_per_unit }}</td>
                     <td>${{ investment.total_cost }}</td>
                     <td>
-                        <a href="{% url 'edit_investment' investment.id %}">Edit</a> |
-                        <a href="{% url 'delete_investment' investment.id %}">Delete</a>
+                        <a href="{% url 'investments:edit_investment' investment.id %}" class="edit-link">✏️ Edit</a> |
+                        <a href="{% url 'investments:delete_investment' investment.id %}" class="delete-link">❌ Delete</a>
                     </td>
                 </tr>
                 {% empty %}
@@ -267,6 +220,14 @@
                 {% endfor %}
             </tbody>
         </table>
-    </section>
+    </div>
+</section>
+
+
+    
 </div>
+
 {% endblock %}
+
+
+

@@ -35,7 +35,7 @@
             
             {% if user.is_authenticated %}
                 <a href="{% url 'family_member_list' %}" class="nav-link">Family Profile</a>
-                <a href="{% url 'investment_list' %}" class="nav-link">Investments</a>
+                <a href="{% url 'investments:investments_list' %}" class="nav-link">Investments</a>
                 <a href="{% url 'training_view' %}" class="nav-link">Training</a>
                 <form method="POST" action="{% url 'logout' %}" class="logout-form">
                     {% csrf_token %}

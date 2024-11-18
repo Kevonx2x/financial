@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="investment-container">
+  <h2>Edit Investment</h2>
+
+  <form method="post">
+    {% csrf_token %}
+
+    <div class="form-group">
+      <label for="id_name">Investment Name:</label>
+      {{ form.name }}
+    </div>
+
+    <div class="form-group">
+      <label for="id_amount">Amount:</label>
+      {{ form.amount }}
+    </div>
+
+    <div class="form-group">
+      <label for="id_investment_type">Investment Type:</label>
+      {{ form.investment_type }}
+    </div>
+
+    <button type="submit">Update Investment</button>
+  </form>
+
+  <a href="/investments/investments/">Back to Investments</a>
+</div>
+{% endblock %}

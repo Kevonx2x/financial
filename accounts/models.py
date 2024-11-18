@@ -19,19 +19,17 @@ class Team(models.Model):
 from django.contrib.auth.models import AbstractUser, Group, Permission
 
 class CustomUser(AbstractUser):
-    # your custom fields here
-    
-    # Add a related_name to avoid conflicts
+
     groups = models.ManyToManyField(
         Group,
-        related_name='customuser_set',  # Change this to something unique
+        related_name='customuser_set',  
         blank=True,
         help_text='The groups this user belongs to.',
         related_query_name='customuser',
     )
     user_permissions = models.ManyToManyField(
         Permission,
-        related_name='customuser_set',  # Change this to something unique
+        related_name='customuser_set',  
         blank=True,
         help_text='Specific permissions for this user.',
         related_query_name='customuser',
